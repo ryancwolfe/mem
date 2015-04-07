@@ -387,7 +387,7 @@ while 1:
       history[original_question] = MAX_NUMBER
       fact_array = getFactArray(facts,history)
       print '''
-
+ 
       ************
       *  Wrong!  *
       ************
