@@ -1,0 +1,30 @@
+PFLN - 3:21a	?, But, law, although
+pick3: But now the righteousness of God has been manifested apart from the law	3:21a
+esv: ?  But now the righteousness of God has been manifested apart from the law	blanks
+PFLN - 3:21b	law, although, it, the
+pick3: although the Law and the Prophets bear witness to it	3:21b
+esv: But now the righteousness of God has been manifested apart from the law although the Law and the Prophets bear witness to it	blanks
+PFLN - 3:22	it, the, distinction, for
+pick3: the righteousness of God through faith in Jesus Christ for all who believe. For there is no distinction	'3:22
+esv: although the Law and the Prophets bear witness to it the righteousness of God through faith in Jesus Christ for all who believe. For there is no distinction	blanks
+PFLN - 3:23	distinction, for, God, and
+pick3: for all have sinned and fall short of the glory of God,	'3:23
+esv: the righteousness of God through faith in Jesus Christ for all who believe. For there is no distinction for all have sinned and fall short of the glory of God,	blanks
+PFLN - 3:24	God, and, Jesus, whom
+pick3: and are justified by his grace as a gift, through the redemption that is in Christ Jesus,	'3:24
+esv: for all have sinned and fall short of the glory of God, and are justified by his grace as a gift, through the redemption that is in Christ Jesus,	blanks
+PFLN - 3:25a	Jesus, whom, blood, to
+pick3: whom God put forward as a propitiation by his blood	3:25a
+esv: and are justified by his grace as a gift, through the redemption that is in Christ Jesus, whom God put forward as a propitiation by his blood	blanks
+PFLN - 3:25b	blood, to, righteousness, because
+pick3: to be received by faith. This was to show God's righteousness	3:25b
+esv: whom God put forward as a propitiation by his blood to be received by faith. This was to show God's righteousness	blanks
+PFLN - 3:25c	righteousness, because, sins, It
+pick3: because in his divine forbearance he had passed over former sins.	3:25c
+esv: to be received by faith. This was to show God's righteousness because in his divine forbearance he had passed over former sins.	blanks
+PFLN - 3:26a	sins, It, time, so
+pick3: It was to show his righteousness at the present time	3:26a
+esv: because in his divine forbearance he had passed over former sins. It was to show his righteousness at the present time	blanks
+PFLN - 3:26b	time, so, Jesus, ?
+pick3: so that he might be just and the justifier of the one who has faith in Jesus.	3:26b
+esv: It was to show his righteousness at the present time so that he might be just and the justifier of the one who has faith in Jesus.	blanks
