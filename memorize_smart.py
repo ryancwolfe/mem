@@ -397,6 +397,4 @@ while 1:
       '''
       time.sleep (1)
 
- 
   open('localdb','w').write('history='+pformat(history))
-
