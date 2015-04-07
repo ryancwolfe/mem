@@ -13,7 +13,7 @@
 
 #Change the numbers below to control the relative frequency of the numbers
 decrement_array = map(int, \
- '''
+ ''' 
 200
 175
 150
