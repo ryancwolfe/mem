@@ -1,5 +1,5 @@
 
-import time, random, re, bannerMod
+import time, random, re
 from pprint import pformat
 from io import facts,ioQuestion2frequency
 from databaseMod import Database
