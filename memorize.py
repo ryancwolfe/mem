@@ -5,20 +5,15 @@ from io import facts,ioQuestion2frequency
 from databaseMod import Database
 from factMod import Population
 from print_introduction import Introduction
-# Add any new facts to the dictionary
-#for fact in facts:
-#  if fact.question not in ioQuestion2frequency: 
-#    ioQuestion2frequency[question]=decrement_array[0]
-
-database=Database(ioQuestion2frequency)
-
-population=Population(facts)
 
 # Class Instantiation
+
+database=Database(ioQuestion2frequency)
+population=Population(facts)
 introduction=Introduction(facts)
 
 def getAnInteger():
-  # Crazy construction for in case the user doesn't type an integer.
+  # In case the user doesn't type an integer at first...
   user_return = ''
   while not re.compile(r'\d+').match(user_return):
     user_return = raw_input('Please return an integer.\n  > ').strip()
