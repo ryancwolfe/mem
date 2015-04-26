@@ -2,7 +2,7 @@ import factMod
 
 def csv2facts():
   import sys, csv
-  fname=r'C:\me\devos\mem\facts.csv'
+  fname=r'facts.csv'
   ret_val=[]
   with open(fname, 'rb') as csvfile:
     facts_file = csv.reader(csvfile, delimiter=',', quotechar='"')
@@ -12,8 +12,7 @@ def csv2facts():
       question,answer,category,category_to_ask=fields
       # Filter out unwanted rows
       if (not (category==category_to_ask)) or \
-          question.startswith('#') or \
-         (answer.lower()=='title'):
+          question.startswith('#'):
             continue # Filter out unwanted rows
       if question=='' or answer=='':continue
       ret_val.append(factMod.Fact(question,answer))
