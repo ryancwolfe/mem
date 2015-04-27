@@ -1,5 +1,5 @@
 
-import time, random, re
+import time, random, re, print_response
 from pprint import pformat
 from io import facts,ioQuestion2frequency
 from databaseMod import Database
@@ -23,7 +23,7 @@ def getUserAnswer(fact):
     user_answer=raw_input('    > ').strip().lower()
     
     # For "set" answers, the order shouldn't matter.  So, sort the answers alphabetically
-    if fact.question.lower().startswith('set:'):
+    if fact.question.value.lower().startswith('set:'):
       user_answer = ', '.join(sorted([x.strip() for x in user_answer.split(',')]))
       fact.answer = ', '.join(sorted([x.strip() for x in fact.answer.split(',')]))
     
@@ -40,7 +40,7 @@ while 1:
   while given_answer not in ['skip',answer,'giveup','skip','remove', 'rescore']:
   
     introduction._print(fact)
-    answer,fact.question.frequency.low_watermark
+    #answer,fact.question.frequency.low_watermark
     
     given_answer = getUserAnswer(fact)
     
@@ -51,7 +51,10 @@ while 1:
     # If they got the right answer, then decrease the frequency (aka "score")
     #  with which the question is asked.
     #
-    if given_answer == correct_answer:
+    print given_answer
+    print fact.answer
+    print fact.question.value
+    if given_answer == fact.answer:
       fact.question.frequency.decrement()
       print_response.correct_answer()
     

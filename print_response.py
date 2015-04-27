@@ -1,5 +1,6 @@
+import time
 def correct_answer():
-       print '''
+      print '''
     
       **************************
       *                        *

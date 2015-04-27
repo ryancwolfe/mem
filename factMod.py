@@ -39,14 +39,14 @@ class Frequency():
     self.low_watermark = frequency
   def decrement(self):
     decrement_dictionary = getDecrementDictionary(decrement_array)
-    new_value = decrement_dictionary[self.frequency]
+    new_value = decrement_dictionary[self.value]
     self.set_to( new_value )
     self.low_watermark = new_value
   def set_to(self,frequency):
     self.value=frequency
   def __int__(self):  return int(self.value)
   def __str__(self):  return str(self.value)
-  def reset(self,frequency):
+  def reset(self):
     self.set_to(MAX_NUMBER)
 
 class Question():
@@ -71,7 +71,7 @@ class Fact():
     return question,self.answer
     
   def render_blanks(self):
-    
+    print self.question
     question = list(self.question.split())
     title=''
     if question[0].endswith(':'):
