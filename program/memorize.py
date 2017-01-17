@@ -7,7 +7,7 @@
 '''
 import time, random, re, print_response
 from pprint import pformat
-from io import facts,ioQuestion2frequency
+from io import facts, ioQuestion2frequency, Population_Frequencies
 from databaseMod import Database
 from factMod import Population
 from print_introduction import Introduction

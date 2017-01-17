@@ -1,5 +1,5 @@
 import factMod
-import sys, csv
+import sys, csv, os
 
 def json2facts(json_path = 'facts.json'):
   '''
@@ -42,23 +42,78 @@ def json2facts(json_path = 'facts.json'):
       
   return facts_array
       
+
+class Population_Frequencies():
+  '''
+    Program interface to the frequencies.json file.
+  
+  '''
+  
+  def __init__(self):
+    '''
+      Dependency is the 'frequencies.json' file.
       
-def loadQuestion2Frequency():
-  import os
-  if os.access("db\\question2frequency.localdatabase", os.R_OK): # If the file exists
-    question2frequency=eval(open("db\\question2frequency.localdatabase").read()) # Load the "history" variable from it
-  else:
-    ans=raw_input= """
-     It appears that the local database either hasn't been created or
-     has been been corrupted.  Do you want to create a new local database?
-     WARNING: This will erase the current database if it exists.
-       Y - Create a new file:
-       N - Abort
-     > """
-    if ans.lower().startswith('n'): raise ExceptionError('Aborting!')
-    else: question2frequency={} # Create a blank history record
-  return question2frequency
+      Contents of the file is a dictionary or tuple like:
+              Dicionary:
+                 {'Some question text': 200,
+                  'Some other text': 175}
+              Tuple array:
+                 [('Some question text', 200),
+                  ('Some other text', 175)]
+    '''
+    
+    # If the file exists
+    if os.access('frequencies.json', os.R_OK):
+      
+      # Load it as the baseline
+      self.allQuestion2frequency=eval(open("frequencies.json").read())
 
-facts = csv2facts()
+    else:
+    
+      ans=raw_input ( """
+       It appears that the local database either hasn't been created or
+       has been been corrupted.  Do you want to create a new local database?
+       WARNING: This will erase the current database if it exists.
+         Y - Create a new file:
+         N - Abort
+       > """)
+       
+      # Handle the "Abort" option
+      if ans.lower().startswith('n'): raise ExceptionError('Aborting!')
+      
+      # Create a blank history record
+      else: self.allQuestion2frequency={} 
+    
+  def __dict__(self):
+    # Treat the instance as, basically, a dicionary
+    return self.allQuestion2frequency
+  
+  def rescore(self,fact):
+    '''
+     Input: 
+        fact
+          is a Fact instance, which should have its question frequency set.
+          
+     Operation:
+        Updates the dictionary to have the new value added here.
+    '''
+    self.allQuestion2frequency[str(fact.question)] = int(fact.question.frequency)
+  
+  def store(self):
+    # Dump the dictionary to the json file
+    with open('frequencies.json, 'wb') as f:
 
-ioQuestion2frequency = loadQuestion2Frequency()
+      # write JSON to file; note the ensure_ascii parameter
+      json.dump(self.allQuestion2frequency, f, indent = 2, ensure_ascii = True)
+  
+  def update(self,fact):
+    '''
+      Sequence of the two main class operations
+    '''
+    self.rescore(fact)
+    self.store()
+      
+
+facts = json2facts()
+
+
