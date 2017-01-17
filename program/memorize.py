@@ -1,22 +1,24 @@
 '''
 
+   memorize.py
    
-
+   Dependencies 
 
 
 '''
-import time, random, re, print_response
-from pprint import pformat
-from io import facts, ioQuestion2frequency, Population_Frequencies
+
+import time, random, re, print_response, io
+
+# Custom libraries
+from io import facts
 from databaseMod import Database
 from factMod import Population
 from print_introduction import Introduction
 
 # Class Instantiation
-
-database=Database(ioQuestion2frequency)
-population=Population(facts)
-introduction=Introduction(facts)
+frequencies = io.Population_Frequencies()
+population = Population(facts)
+introduction = Introduction(facts)
 
 def getAnInteger():
   # In case the user doesn't type an integer at first...
@@ -94,5 +96,5 @@ while 1:
       fact.question.frequency.reset()
       print_response.wrong()
 
-  database.update(fact)
+  frequencies.update(fact)
 
