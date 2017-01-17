@@ -1,23 +1,46 @@
 import factMod
+import sys, csv
 
-def csv2facts():
-  import sys, csv
-  fname=r'facts.csv'
-  ret_val=[]
-  with open(fname, 'rb') as csvfile:
-    facts_file = csv.reader(csvfile, delimiter=',', quotechar='"')
-    for i,fact in enumerate(facts_file):
-      if i==0:continue
-      fields = [field.strip() for field in fact[:4]]
-      question,answer,category,category_to_ask=fields
-      # Filter out unwanted rows
-      if (not (category==category_to_ask)) or \
-          question.startswith('#'):
-            continue # Filter out unwanted rows
-      if question=='' or answer=='':continue
-      ret_val.append(factMod.Fact(question,answer))
+def csv2facts(csv_path = 'facts.csv'):
+  '''
+   input:  csv_path is the path to the csv file.
+   
+   output: array of Facts. (Each fact is an instance of the Fact
+            class.)
+  '''
+  
+  facts_array = []
+  
+  # Open the existing csv file
+  with open(csv_path, 'rb') as csvfile:
+  
+    csv_contents = csv.reader(csvfile, delimiter=',', quotechar='"')
+    
+    for i, fact in enumerate(csv_contents):
+    
+      # Skip the first (title) row
+      if i == 0: continue
       
-  return ret_val
+      # Get the four elements of each fact
+      fields = [field.strip() for field in fact[:4]]
+      question, answer, field_3, field_4 = fields
+      
+      # Rules in filtering out unwanted rows:
+      
+      #  1. Fields 3 and 4 should match
+      #     (This was invented as an easy / fast way of
+      #      retaining questions but filtering them out)
+      if field_3 != field_4: continue
+      
+      #  2. Questions must not start with "#"
+      if question.startswith('#'): continue
+      
+      #  3. Must have at least a question and an answer
+      if question == '' or answer == '':continue
+  
+      facts_array.append(factMod.Fact(question, answer))
+      
+  return facts_array
       
       
 def loadQuestion2Frequency():
