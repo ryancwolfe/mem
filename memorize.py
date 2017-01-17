@@ -1,4 +1,10 @@
+'''
 
+   
+
+
+
+'''
 import time, random, re, print_response
 from pprint import pformat
 from io import facts,ioQuestion2frequency
@@ -40,7 +46,6 @@ while 1:
   while given_answer not in ['skip',answer,'giveup','skip','remove', 'rescore']:
   
     introduction._print(fact)
-    #answer,fact.question.frequency.low_watermark
     
     given_answer = getUserAnswer(fact)
     

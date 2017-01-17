@@ -1,2 +1,2 @@
-python memorize_smart.py facts.csv
+python memorize.py facts.csv
 pause
