@@ -1,10 +1,18 @@
 '''
 
-   memorize.py
+   Ryan Wolfe, 2017
    
-   Dependencies 
-
-
+   -------------------------------------------------------------------------
+   
+   This is the control function.  (factMod.py is the logic funcction.)
+   
+   After initializing the data, this program enters an infinite
+     while loop, which:
+       1. Prints the introduction
+       2. Queries for user input
+       3. Handles the user input
+       (repeat)
+   
 '''
 
 import time, random, re, print_response, io
@@ -28,6 +36,7 @@ def getAnInteger():
   return int(user_return)
 
 def getUserAnswer(fact):
+    'Common function to handle user input'
     user_answer=raw_input('    > ').strip().lower()
     
     # For "set" answers, the order shouldn't matter.  So, sort the answers alphabetically
