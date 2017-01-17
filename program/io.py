@@ -1,9 +1,9 @@
 import factMod
 import sys, csv
 
-def csv2facts(csv_path = 'facts.csv'):
+def json2facts(json_path = 'facts.json'):
   '''
-   input:  csv_path is the path to the csv file.
+   input:  json_path is the path to the json file.
    
    output: array of Facts. (Each fact is an instance of the Fact
             class.)
@@ -11,12 +11,12 @@ def csv2facts(csv_path = 'facts.csv'):
   
   facts_array = []
   
-  # Open the existing csv file
-  with open(csv_path, 'rb') as csvfile:
+  # Open the existing json file
+  with open(json_path, 'rb') as jsonfile:
   
-    csv_contents = csv.reader(csvfile, delimiter=',', quotechar='"')
+    json_contents = eval(json_path)
     
-    for i, fact in enumerate(csv_contents):
+    for i, fact in enumerate(json_contents):
     
       # Skip the first (title) row
       if i == 0: continue
