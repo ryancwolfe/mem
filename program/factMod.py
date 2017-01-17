@@ -1,27 +1,15 @@
-import random
+'''
+   Ryan Wolfe, 2017
 
-decrement_array = map(int, \
- '''
-200
-175
-150
-120
-110
-100 
- 90 
- 80 
- 70 
- 60 
- 50
- 40
- 30
- 20
- 10
-  5
-  3
-  2
-  1
- '''.split())
+   ----------------------------------------------------------
+   
+   This file hosts most of the logic behind how questions and answers
+     are handled.
+     
+   Dependencies:
+     Python's "random" library
+'''
+import random
 
 def getDecrementDictionary(decrement_array):
   decrement_array = list(reversed(sorted(list(set(decrement_array)))))
@@ -31,32 +19,62 @@ def getDecrementDictionary(decrement_array):
     else: decrement_dictionary[d] = decrement_array[i+1]
   return decrement_dictionary
 
-MAX_NUMBER = decrement_array[0]
-
 class Frequency():
-  def __init__(self,frequency=MAX_NUMBER):
-    self.set_to(frequency)
-    self.low_watermark = frequency
+
+  decrement_array = map(int, \
+     '''
+    200
+    175
+    150
+    120
+    110
+    100 
+     90 
+     80 
+     70 
+     60 
+     50
+     40
+     30
+     20
+     10
+      5
+      3
+      2
+      1
+     '''.split())
+  
+  def __init__(self):
+    self.set_to(self.decrement_array[0])
+    self.low_watermark = self.decrement_array[0]
+    
   def decrement(self):
-    decrement_dictionary = getDecrementDictionary(decrement_array)
+    decrement_dictionary = getDecrementDictionary(self.decrement_array)
     new_value = decrement_dictionary[self.value]
     self.set_to( new_value )
     self.low_watermark = new_value
+  
   def set_to(self,frequency):
     self.value=frequency
+  
   def __int__(self):  return int(self.value)
+  
   def __str__(self):  return str(self.value)
+  
   def reset(self):
     self.set_to(MAX_NUMBER)
 
 class Question():
+  
   def __init__(self,question,_freq=MAX_NUMBER):
     self.value=question
     self.frequency = Frequency(_freq)
+  
   def __str__(self):
     return str(self.value)
 
 class Fact():
+  
   def __init__(self,question,answer):
     self.question = Question(question)
     self.answer = answer
@@ -150,28 +168,27 @@ class Fact():
     return self.question.value,self.answer
 
 class Facts():
+
   def __init__(self,facts):
     self.population = Population(facts)
     self.facts=facts
-  def __list__(self):
+
+    def __list__(self):
     return self.facts
 
 class Population():
+
   def __init__(self,facts):
     self.facts = facts
     self.repopulate()
+
   def repopulate(self):
     self.value=[]
     for i,fact in enumerate(self.facts):
       frequency=fact.question.frequency
       for _ in range(frequency):
         self.value.append(i)
+
   def __len__(self): return len(self.value)
 
   
-#facts=[Fact('What is your name?','George'),Fact('What is down there?','hippos')]
-#population=Population(facts)
-#facts[0].question.frequency.decrement()
-#population.repopulate()
-
-#population = getFactArray(facts,ioQuestion2frequency)
